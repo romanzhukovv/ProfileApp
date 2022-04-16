@@ -9,7 +9,15 @@ import SwiftUI
 
 struct PostView: View {
     var body: some View {
-        Text("If you're looking for a cute dessert for a party or even just a little pick-me up, try making some of @bakedbyjosie's bite sized cheesecakes! For more delicious baked goods, watch Baked by Josie")
+        VStack(spacing: 0) {
+            Text("If you're looking for a cute dessert for a party or even just a little pick-me up, try making some of @bakedbyjosie's bite sized cheesecakes! For more delicious baked goods, watch Baked by Josie")
+                .lineSpacing(12)
+                .font(Font.system(size: 14, weight: .regular))
+                .padding(EdgeInsets(top: 0, leading: 18, bottom: 30, trailing: 18))
+            Image("man")
+                .resizable()
+        }
+        
     }
 }
 

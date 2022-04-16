@@ -28,8 +28,7 @@ struct HomeView: View {
                 }
                 
                 ForEach(1..<10, id: \.self) {_ in
-                    PostView()
-                        .padding(EdgeInsets(top: 0, leading: 18, bottom: 76, trailing: 18))
+                    PostView()          
                 }
             }
             .clipped()
