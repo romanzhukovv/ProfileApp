@@ -46,6 +46,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC651454280CA2AF0005467B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC651455280CA2BF0005467B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		FCFB73C0280B46FD00505829 = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +79,12 @@
 		FCFB73CB280B46FD00505829 /* ProfileApp */ = {
 			isa = PBXGroup;
 			children = (
+				FC651455280CA2BF0005467B /* ViewModels */,
+				FC651454280CA2AF0005467B /* Models */,
 				FCFB73CC280B46FD00505829 /* ProfileAppApp.swift */,
 				FCFB73CE280B46FD00505829 /* ContentView.swift */,
-				FCFB73DA280B49F500505829 /* Home */,
-				FCFB73DB280B4A0300505829 /* Profile */,
+				FCFB73DA280B49F500505829 /* HomeView */,
+				FCFB73DB280B4A0300505829 /* ProfileView */,
 				FCFB73DC280B4A2700505829 /* Recources */,
 				FCFB73D2280B46FD00505829 /* Preview Content */,
 				FC65144E280C6C4D0005467B /* Extension + View.swift */,
@@ -84,24 +100,24 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		FCFB73DA280B49F500505829 /* Home */ = {
+		FCFB73DA280B49F500505829 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
 				FCFB73DD280B4BD600505829 /* HomeView.swift */,
 				FC65144B280C46C70005467B /* HeaderView.swift */,
 				FCFB73E1280B57DE00505829 /* PostView.swift */,
 			);
-			path = Home;
+			path = HomeView;
 			sourceTree = "<group>";
 		};
-		FCFB73DB280B4A0300505829 /* Profile */ = {
+		FCFB73DB280B4A0300505829 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
 				FCFB73DF280B4C0200505829 /* ProfileView.swift */,
 				FC651450280C73F60005467B /* PhotoView.swift */,
 				FC651452280C7C1A0005467B /* BioTFView.swift */,
 			);
-			path = Profile;
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		FCFB73DC280B4A2700505829 /* Recources */ = {
