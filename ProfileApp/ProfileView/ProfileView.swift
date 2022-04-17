@@ -11,7 +11,7 @@ struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @State private var bioText = ""
     @State private var keyboardOffset: CGFloat = 0
-    @State private var buttonTitleTF = "Edit"
+    @State private var isEditable = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -21,7 +21,10 @@ struct ProfileView: View {
             PhotoView(image: "car-header", cornerRaius: 15, title: "Cover photo")
             Divider()
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 11, trailing: 0))
-            BioTFView(viewTitle: "Bio", bioText: $bioText, buttonTitle: buttonTitleTF) {
+            BioTFView(viewTitle: "Bio", bioText: $bioText, isEditable: $isEditable) {
+                isEditable.toggle()
+                hideKeyboard()
+                viewModel.person.bio = bioText
             }
             Spacer()
         }
@@ -37,6 +40,10 @@ struct ProfileView: View {
                 keyboardOffset = 0
             }
         }
+    }
+    
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 

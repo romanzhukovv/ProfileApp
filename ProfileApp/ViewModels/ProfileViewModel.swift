@@ -8,5 +8,5 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    @Published var person: Person = Person(bio: "ssdfsdfsdf")
+    @Published var person: Person = Person(bio: "This is Bio")
 }
