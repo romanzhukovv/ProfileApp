@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person {
+struct Person: Codable {
     var profilePicture: String = ""
     var coverPhoto: String = ""
     var bio: String

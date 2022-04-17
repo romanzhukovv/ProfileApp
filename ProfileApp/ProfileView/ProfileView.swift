@@ -11,7 +11,6 @@ struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @State private var bioText = ""
     @State private var keyboardOffset: CGFloat = 0
-    @State private var isEditable = false
     
     var body: some View {
         VStack(spacing: 0) {
@@ -21,10 +20,9 @@ struct ProfileView: View {
             PhotoView(image: "car-header", cornerRaius: 15, title: "Cover photo")
             Divider()
                 .padding(EdgeInsets(top: 8, leading: 0, bottom: 11, trailing: 0))
-            BioTFView(viewTitle: "Bio", bioText: $bioText, isEditable: $isEditable) {
-                isEditable.toggle()
-                hideKeyboard()
+            BioTFView(viewTitle: "Bio", bioText: $bioText) {
                 viewModel.person.bio = bioText
+                viewModel.savePerson()
             }
             Spacer()
         }
@@ -32,6 +30,8 @@ struct ProfileView: View {
         .animation(.easeInOut, value: keyboardOffset)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
         .onAppear {
+            bioText = viewModel.person.bio
+            
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
                 keyboardOffset = 80
             }
@@ -40,10 +40,6 @@ struct ProfileView: View {
                 keyboardOffset = 0
             }
         }
-    }
-    
-    private func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
