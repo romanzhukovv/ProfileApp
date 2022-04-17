@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ProfileViewModel()
+    
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(viewModel: viewModel)
                 .tabItem {
                     Label("Home", systemImage: "house")
                         .environment(\.symbolVariants, .none)
                 }
-            ProfileView()
+            ProfileView(viewModel: viewModel)
                 .tabItem {
                     Label("Profile", systemImage: "person")
                         .environment(\.symbolVariants, .none)

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var viewModel: ProfileViewModel
+    
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
@@ -15,7 +17,7 @@ struct HomeView: View {
                     HeaderView()
                     Text("John Doe").font(Font.system(size: 22, weight: .bold))
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                    Text("This is Bio").font(Font.system(size: 16, weight: .regular))
+                    Text(viewModel.person.bio).font(Font.system(size: 16, weight: .regular))
                     Divider()
                         .padding(EdgeInsets(top: 25, leading: 15, bottom: 12, trailing: 15))
                     HStack(spacing: 0) {
@@ -38,6 +40,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(viewModel: ProfileViewModel())
     }
 }

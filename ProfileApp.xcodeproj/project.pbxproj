@@ -11,6 +11,8 @@
 		FC65144F280C6C4D0005467B /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC65144E280C6C4D0005467B /* Extension + View.swift */; };
 		FC651451280C73F60005467B /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC651450280C73F60005467B /* PhotoView.swift */; };
 		FC651453280C7C1A0005467B /* BioTFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC651452280C7C1A0005467B /* BioTFView.swift */; };
+		FC651458280CA3630005467B /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC651457280CA3630005467B /* Person.swift */; };
+		FC65145A280CA41D0005467B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC651459280CA41D0005467B /* ProfileViewModel.swift */; };
 		FCFB73CD280B46FD00505829 /* ProfileAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFB73CC280B46FD00505829 /* ProfileAppApp.swift */; };
 		FCFB73CF280B46FD00505829 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFB73CE280B46FD00505829 /* ContentView.swift */; };
 		FCFB73D1280B46FD00505829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFB73D0280B46FD00505829 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		FC65144E280C6C4D0005467B /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
 		FC651450280C73F60005467B /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		FC651452280C7C1A0005467B /* BioTFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioTFView.swift; sourceTree = "<group>"; };
+		FC651457280CA3630005467B /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		FC651459280CA41D0005467B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		FCFB73C9280B46FD00505829 /* ProfileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFB73CC280B46FD00505829 /* ProfileAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAppApp.swift; sourceTree = "<group>"; };
 		FCFB73CE280B46FD00505829 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 		FC651454280CA2AF0005467B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FC651457280CA3630005467B /* Person.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -56,8 +61,17 @@
 		FC651455280CA2BF0005467B /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FC651459280CA41D0005467B /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FC651456280CA3390005467B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC65144E280C6C4D0005467B /* Extension + View.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		FCFB73C0280B46FD00505829 = {
@@ -79,15 +93,15 @@
 		FCFB73CB280B46FD00505829 /* ProfileApp */ = {
 			isa = PBXGroup;
 			children = (
-				FC651455280CA2BF0005467B /* ViewModels */,
-				FC651454280CA2AF0005467B /* Models */,
 				FCFB73CC280B46FD00505829 /* ProfileAppApp.swift */,
 				FCFB73CE280B46FD00505829 /* ContentView.swift */,
+				FC651454280CA2AF0005467B /* Models */,
 				FCFB73DA280B49F500505829 /* HomeView */,
 				FCFB73DB280B4A0300505829 /* ProfileView */,
+				FC651455280CA2BF0005467B /* ViewModels */,
+				FC651456280CA3390005467B /* Extensions */,
 				FCFB73DC280B4A2700505829 /* Recources */,
 				FCFB73D2280B46FD00505829 /* Preview Content */,
-				FC65144E280C6C4D0005467B /* Extension + View.swift */,
 			);
 			path = ProfileApp;
 			sourceTree = "<group>";
@@ -198,12 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC651458280CA3630005467B /* Person.swift in Sources */,
 				FC65144F280C6C4D0005467B /* Extension + View.swift in Sources */,
 				FC651453280C7C1A0005467B /* BioTFView.swift in Sources */,
 				FCFB73E0280B4C0200505829 /* ProfileView.swift in Sources */,
 				FC65144C280C46C70005467B /* HeaderView.swift in Sources */,
 				FCFB73DE280B4BD600505829 /* HomeView.swift in Sources */,
 				FCFB73CF280B46FD00505829 /* ContentView.swift in Sources */,
+				FC65145A280CA41D0005467B /* ProfileViewModel.swift in Sources */,
 				FCFB73E2280B57DE00505829 /* PostView.swift in Sources */,
 				FCFB73CD280B46FD00505829 /* ProfileAppApp.swift in Sources */,
 				FC651451280C73F60005467B /* PhotoView.swift in Sources */,

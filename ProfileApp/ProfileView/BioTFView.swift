@@ -8,15 +8,20 @@
 import SwiftUI
 
 struct BioTFView: View {
-    let title: String
+    let viewTitle: String
     @Binding var bioText: String
+    let buttonTitle: String
+    let buttonAction: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text(title).font(Font.system(size: 20, weight: .bold))
+                Text(viewTitle).font(Font.system(size: 20, weight: .bold))
                 Spacer()
-                Button("Edit", action: {}).font(Font.system(size: 16, weight: .regular))
+                Button(action: buttonAction) {
+                    Text(buttonTitle)
+                        .font(Font.system(size: 16, weight: .regular))
+                }
             }
             TextField("Describe yourself...", text: $bioText)
                 .frame(height: 30, alignment: .center)
@@ -27,6 +32,6 @@ struct BioTFView: View {
 
 struct BioTFView_Previews: PreviewProvider {
     static var previews: some View {
-        BioTFView(title: "Bio", bioText: .constant(""))
+        BioTFView(viewTitle: "Bio", bioText: .constant(""), buttonTitle: "Edit", buttonAction: {})
     }
 }
