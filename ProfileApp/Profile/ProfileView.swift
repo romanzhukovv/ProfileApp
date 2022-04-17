@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @State private var bioText = ""
+    @State private var offsetKeyboard: CGFloat = 0
     
     var body: some View {
         VStack(spacing: 0) {
@@ -21,7 +22,18 @@ struct ProfileView: View {
             BioTFView(title: "Bio", bioText: $bioText)
             Spacer()
         }
+        .offset(y: -offsetKeyboard)
+        .animation(.easeInOut, value: offsetKeyboard)
         .padding(EdgeInsets(top: 0, leading: 15, bottom: 0, trailing: 15))
+        .onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { _ in
+                offsetKeyboard = 80
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+                offsetKeyboard = 0
+            }
+        }
     }
 }
 

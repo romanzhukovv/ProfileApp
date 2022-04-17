@@ -10,6 +10,7 @@ import SwiftUI
 struct BioTFView: View {
     let title: String
     @Binding var bioText: String
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -26,6 +27,6 @@ struct BioTFView: View {
 
 struct BioTFView_Previews: PreviewProvider {
     static var previews: some View {
-        BioTFView(title: "Bio", bioText: .constant("bio"))
+        BioTFView(title: "Bio", bioText: .constant(""))
     }
 }
