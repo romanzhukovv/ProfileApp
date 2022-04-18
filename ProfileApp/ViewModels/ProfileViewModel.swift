@@ -8,10 +8,11 @@
 import Foundation
 
 class ProfileViewModel: ObservableObject {
-    @Published var person: Person = Person(bio: "This is Bio")
+    @Published var person: Person = Person(profilePicture: Data(), coverPhoto: Data(), bio: "This is Bio")
     
     init() {
         person = StorageManager.shared.fetchPersonData()
+        print(person)
     }
     
     func savePerson() {

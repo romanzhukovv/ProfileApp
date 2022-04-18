@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PhotoView: View {
-    let image: String
+    let image: Data
     let cornerRaius: CGFloat
     let title: String
     let buttonAction: () -> Void
@@ -20,7 +20,7 @@ struct PhotoView: View {
                 Spacer()
                 Button("Edit", action: buttonAction).font(Font.system(size: 16, weight: .regular))
             }
-            Image(image)
+            Image(uiImage: UIImage(data: image) ?? UIImage())
                 .resizable()
                 .cornerRadius(cornerRaius)
                 .scaledToFit()
@@ -32,6 +32,6 @@ struct PhotoView: View {
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoView(image: "car-header", cornerRaius: 15, title: "Profile picture", buttonAction: {})
+        PhotoView(image: Data(), cornerRaius: 15, title: "Profile picture", buttonAction: {})
     }
 }

@@ -13,15 +13,17 @@ struct ProfileView: View {
     @State private var keyboardOffset: CGFloat = 0
     @State private var imagePicker = false
     @State private var imageData: Data = Data()
+    @State private var editProfilePicture = false
     
     var body: some View {
         VStack(spacing: 0) {
-            PhotoView(image: "manRound", cornerRaius: 0, title: "Profile picture") {
+            PhotoView(image: viewModel.person.profilePicture, cornerRaius: 0, title: "Profile picture") {
+                editProfilePicture.toggle()
                 imagePicker.toggle()
             }
             Divider()
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 11, trailing: 0))
-            PhotoView(image: "car-header", cornerRaius: 15, title: "Cover photo") {
+            PhotoView(image: viewModel.person.coverPhoto, cornerRaius: 15, title: "Cover photo") {
                 imagePicker.toggle()
             }
             Divider()
@@ -48,7 +50,13 @@ struct ProfileView: View {
         }
         .fullScreenCover(isPresented: $imagePicker) {
             if imageData.count != 0 {
-                
+                if editProfilePicture {
+                    viewModel.person.profilePicture = imageData
+                    editProfilePicture.toggle()
+                } else {
+                    viewModel.person.coverPhoto = imageData
+                }
+                viewModel.savePerson()
             }
         } content: {
             ImagePicker(imagePicker: $imagePicker, imageData: $imageData)
@@ -74,6 +82,8 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = context.coordinator
         return picker
     }
     
