@@ -8,7 +8,7 @@
 import Foundation
 
 struct Person: Codable {
-    var profilePicture: Data
-    var coverPhoto: Data
+    var profilePicture: Data?
+    var coverPhoto: Data?
     var bio: String
 }

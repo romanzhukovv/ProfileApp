@@ -17,8 +17,8 @@ class StorageManager {
     }
     
     func fetchPersonData() -> Person {
-        guard let data = UserDefaults.standard.object(forKey: "person") as? Data else { return Person(profilePicture: Data(), coverPhoto: Data(), bio: "")}
-        guard let person = try? PropertyListDecoder().decode(Person.self, from: data) else { return Person(profilePicture: Data(), coverPhoto: Data(), bio: "")}
+        guard let data = UserDefaults.standard.object(forKey: "person") as? Data else { return Person(profilePicture: Data(), coverPhoto: Data(), bio: "This is Bio")}
+        guard let person = try? PropertyListDecoder().decode(Person.self, from: data) else { return Person(profilePicture: Data(), coverPhoto: Data(), bio: "This is Bio")}
         return person
     }
 }
