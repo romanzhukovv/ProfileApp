@@ -13,14 +13,12 @@ struct HeaderView: View {
     
     var body: some View {
         ZStack {
-//            GeometryReader { proxy in
-                Image(uiImage: coverImage)
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(15, corners: [.topLeft, .topRight])
-                    .frame(width: screenWidth * 0.92, height: screenHeight * 0.24)
-//                    .frame(width: proxy.size.width, height: proxy.size.height)
-//            }
+            Image(uiImage: coverImage)
+                .resizable()
+                .scaledToFit()
+                .cornerRadius(15, corners: [.topLeft, .topRight])
+                .frame(width: screenWidth * 0.92, height: screenHeight * 0.24)
+
             Image(uiImage: profileImage)
                 .resizable()
                 .clipShape(Circle())
