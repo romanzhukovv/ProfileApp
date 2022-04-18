@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct HeaderView: View {
-
+    let coverImage: UIImage
+    let profileImage: UIImage
+    
     var body: some View {
         ZStack {
 //            GeometryReader { proxy in
-                Image("car-header")
+                Image(uiImage: coverImage)
                     .resizable()
-                    .cornerRadius(15, corners: [.topLeft, .topRight])
                     .scaledToFit()
-//                    .frame(width: proxy.size.width * 0.92)
+                    .cornerRadius(15, corners: [.topLeft, .topRight])
+                    .frame(width: screenWidth * 0.92, height: screenHeight * 0.24)
 //                    .frame(width: proxy.size.width, height: proxy.size.height)
 //            }
-            Image("manRound")
+            Image(uiImage: profileImage)
+                .resizable()
+                .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 14))
+                .frame(width: screenWidth * 0.46, height: screenWidth * 0.46)
                 .offset(y: screenHeight * 0.24 / 2)
                 
         }.padding(.bottom, screenHeight * 0.24 / 2)
@@ -29,7 +34,7 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView()
+        HeaderView(coverImage: UIImage(named: "car-header") ?? UIImage(), profileImage: UIImage(named: "manRound") ?? UIImage())
     }
 }
 

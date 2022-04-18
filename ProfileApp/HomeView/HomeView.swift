@@ -14,7 +14,8 @@ struct HomeView: View {
         VStack(spacing: 0) {
             ScrollView {
                 VStack(spacing: 0) {
-                    HeaderView()
+                    HeaderView(coverImage: (UIImage(data: viewModel.person.coverPhoto ?? Data()) ?? UIImage(named:"car-header")) ?? UIImage(),
+                               profileImage: (UIImage(data: viewModel.person.profilePicture ?? Data()) ?? UIImage(named: "manRound")) ?? UIImage())
                     Text("John Doe").font(Font.system(size: 22, weight: .bold))
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                     Text(viewModel.person.bio).font(Font.system(size: 16, weight: .regular))
@@ -28,7 +29,7 @@ struct HomeView: View {
                     }
                     
                     ForEach(1..<10, id: \.self) {_ in
-                        PostView()
+                        PostView(profileImage: (UIImage(data: viewModel.person.profilePicture ?? Data()) ?? UIImage(named:"manRound")) ?? UIImage())
                             .padding(EdgeInsets(top: 21, leading: 0, bottom: 40, trailing: 0))
                     }
                 }

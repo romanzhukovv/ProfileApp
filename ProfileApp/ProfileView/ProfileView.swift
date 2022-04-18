@@ -17,13 +17,19 @@ struct ProfileView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            PhotoView(image: (UIImage(data: viewModel.person.profilePicture ?? Data()) ?? UIImage(named: "manRound")) ?? UIImage(), cornerRaius: 0, title: "Profile picture") {
+            PhotoView(image: (UIImage(data: viewModel.person.profilePicture ?? Data()) ?? UIImage(named:        "manRound")) ?? UIImage(),
+                      cornerRaius: 15,
+                      title: "Profile picture",
+                      isCircle: true) {
                 editProfilePicture.toggle()
                 imagePicker.toggle()
             }
             Divider()
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 11, trailing: 0))
-            PhotoView(image: (UIImage(data: viewModel.person.coverPhoto ?? Data()) ?? UIImage(named: "car-header")) ?? UIImage(), cornerRaius: 15, title: "Cover photo") {
+            PhotoView(image: (UIImage(data: viewModel.person.coverPhoto ?? Data()) ?? UIImage(named: "car-header")) ?? UIImage(),
+                      cornerRaius: 15,
+                      title: "Profile picture",
+                      isCircle: false) {
                 imagePicker.toggle()
             }
             Divider()

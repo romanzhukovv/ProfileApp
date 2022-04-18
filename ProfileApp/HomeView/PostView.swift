@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct PostView: View {
+    let profileImage: UIImage
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                Image("manRound")
+                Image(uiImage: profileImage)
                     .resizable()
                     .frame(width: 40, height: 40)
                     .clipShape(Circle())
@@ -36,6 +38,6 @@ struct PostView: View {
 
 struct PostView_Previews: PreviewProvider {
     static var previews: some View {
-        PostView()
+        PostView(profileImage: UIImage(named: "manRound") ?? UIImage())
     }
 }
